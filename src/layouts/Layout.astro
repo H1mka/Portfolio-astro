@@ -15,8 +15,10 @@ const { title = 'Portfolio' } = Astro.props as LayoutProps
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="text-gray-600">
     <Header />
-		<slot />
+		<div class="max-w-[1440px] w-full m-auto">
+			<slot />
+		</div>
 	</body>
 </html>
