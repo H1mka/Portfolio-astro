@@ -1,12 +1,19 @@
 ---
+import translate from '../locales/translation.json'
+
+const { pathname } = Astro.url;
+const lang = pathname.split('/')[1]
+const currentLang = translate[lang] || translate["en"]
+const t = currentLang.header
+
 const links = [
-  {name: 'About', url: '/'},
-  {name: 'Work', url: '/'},
-  {name: 'Contact', url: '/'}
+  {name: t.about, url: '/'},
+  {name: t.work, url: '/'},
+  {name: t.contact, url: '/'}
 ]
 ---
 
-<header class="px-20 flex justify-between items-center min-h-16 font-semibold z-10 relative">
+<header class="max-w-[1280px] w-full m-auto flex justify-between items-center min-h-16 font-semibold z-10 relative">
   <h2 class="text-2xl">{'<Logo />'}</h2>
 
   <div class="right-menu flex gap-4 items-center">
@@ -20,6 +27,6 @@ const links = [
       </ul>
     </nav>
     <div class="h-6 bg-black w-px"></div>
-    <button class="bg-gray-900 text-white px-4 py-2 rounded-xl">Download CV</button>
+    <button class="bg-gray-900 text-white px-4 py-2 rounded-xl">{t.downloadCV}</button>
   </div>
 </header>

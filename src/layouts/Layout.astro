@@ -17,8 +17,6 @@ const { title = 'Portfolio' } = Astro.props as LayoutProps
 	</head>
 	<body class="text-gray-600">
     <Header />
-		<div class="max-w-[1440px] w-full m-auto">
-			<slot />
-		</div>
+		<slot />
 	</body>
 </html>

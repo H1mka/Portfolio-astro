@@ -5,43 +5,48 @@ import instagramSVG from '../../public/instagram.svg'
 import githubSVG from '../../public/github.svg'
 
 import { Image } from 'astro:assets'
+import translate from '../locales/translation.json'
 
+const { pathname } = Astro.url;
+const lang = pathname.split('/')[1]
+const currentLang = translate[lang] || translate["en"]
+const t = currentLang.greetings
 ---
 
-<section class="px-8 mt-[100px] greetings flex justify-between">
-  <div class="info max-w-[768px] w-full">
-    <div class="info-content  mb-12">
-      <h1 class="font-bold text-6xl mb-2 text-gray-900">Hi, I`m Dima</h1>
-      <p class="text-base">I'm a full stack developer (Vue.js & React.js) with a focus on creating exceptional digital experiences that are fast, accessible, 
-        visually appealing, and responsive. Even though I have been creating web applications for over 1 years, I still love it as if it was something new.
-      </p>
-    </div>
-    <div class="info-locations mb-12">
-      <div class="flex gap-2 items-center">
-        <Image src={locationSVG} alt='location icon' width="24"/>
-        <div>Ivano Frankivsk, Ukraine</div>
+<section class="layout-wrapper">
+  <div class="flex justify-between">
+    <div class="info max-w-[768px] w-full">
+      <div class="info-content  mb-12">
+        <h1 class="font-bold text-6xl mb-2 text-gray-900">{t.title}</h1>
+        <p class="text-base">{t.shortAbout}</p>
       </div>
-      <div class="flex gap-2 items-center">
-        <div class="w-6 flex items-center justify-center">
-          <div class="rounded-full size-2 bg-green-500"></div>
+      <div class="info-locations mb-12">
+        <div class="flex gap-2 items-center">
+          <Image src={locationSVG} alt='location icon' width="24"/>
+          <div>{t.location}</div>
         </div>
-        <div>Working in Uran company</div>
+        <div class="flex gap-2 items-center">
+          <div class="w-6 flex items-center justify-center">
+            <div class="rounded-full size-2 bg-green-500"></div>
+          </div>
+          <div>{t.workIn}</div>
+        </div>
+      </div>
+      <div class="info-social-medias flex gap-4">
+        <a href="https://t.me/Himka242" target="_blank" >
+          <Image src={telegramSVG} alt='telegram link' width="36" />
+        </a>
+        <a href="https://www.instagram.com/petia6079/" target="_blank">
+          <Image src={instagramSVG} alt='instagram link' width="36" />
+        </a>
+        <a href="https://github.com/H1mka" target="_blank">
+          <Image src={githubSVG} alt='github link' width="36" />
+        </a>
       </div>
     </div>
-    <div class="info-social-medias flex gap-4">
-      <a href="https://t.me/Himka242" target="_blank" >
-        <Image src={telegramSVG} alt='telegram link' width="36" />
-      </a>
-      <a href="https://www.instagram.com/petia6079/" target="_blank">
-        <Image src={instagramSVG} alt='instagram link' width="36" />
-      </a>
-      <a href="https://github.com/H1mka" target="_blank">
-        <Image src={githubSVG} alt='github link' width="36" />
-      </a>
-    </div>
-  </div>
-  <div class="image absolute top-0 right-20 z-0">
-    <div class="min-h-[500px] w-[550px] bg-gradient-to-r from-violet-500 to-fuchsia-500">
+    <div class="image absolute top-0 right-40 z-0">
+      <div class="min-h-[500px] w-[550px] bg-gradient-to-r from-violet-500 to-fuchsia-500">
+      </div>
     </div>
   </div>
 </section>

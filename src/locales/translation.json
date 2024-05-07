@@ -1,0 +1,34 @@
+{
+  "en": {
+    "header": {
+      "about": "About",
+      "work": "Work",
+      "contact": "Contact",
+      "downloadCV": "Download CV"
+    },
+    "greetings": {
+      "title": "Hi, I'm Dima",
+      "shortAbout": "I'm a full stack developer (Vue.js & React.js) with a focus on creating exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Even though I have been creating web applications for over 1 years, I still love it as if it was something new.",
+      "location": "Ivano Frankivsk, Ukraine",
+      "workIn": "Working in Uran company"
+    },
+    "about": {},
+    "skills": {}
+  },
+  "ua": {
+    "header": {
+      "about": "Про мене",
+      "work": "Роботи",
+      "contact": "Контакти",
+      "downloadCV": "Завантажити CV"
+    },
+    "greetings": {
+      "title": "Дмитро",
+      "shortAbout": "Переклад...",
+      "location": "Івано-Франківськ, Україна",
+      "workIn": "Працюю в компанії \"Уран\""
+    },
+    "about": {},
+    "skills": {}
+  }
+}
