@@ -12,7 +12,9 @@
       "location": "Ivano Frankivsk, Ukraine",
       "workIn": "Working in Uran company"
     },
-    "about": {},
+    "about": {
+      "sectionTitle": "About me"
+    },
     "skills": {}
   },
   "ua": {

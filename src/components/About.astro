@@ -1,5 +1,33 @@
-<section class="bg-gray-50">
+---
+import SectionTitle from "./SectionTitle.astro"
+import Image from "astro/components/Image.astro";
+import aboutPhoto from "../assets/images/about_photo.jpg"
+
+import translate from '../locales/translation.json'
+
+const { pathname } = Astro.url;
+const lang = pathname.split('/')[1]
+const currentLang = translate[lang] || translate["en"]
+const t = currentLang.about
+---
+
+<section class="about bg-gray-50">
   <div class="layout-wrapper">
-    <div class="text-center">About me</div>
+    <SectionTitle title={t.sectionTitle} />
+    <div class="flex gap-12">
+      <div class="about-image w-full">
+        <Image src={aboutPhoto} alt="selfie" />
+      </div>
+      <div class="about-info w-full">
+        <h2 class="text-3xl font-semibold text-center mb-6">Curious about me? Here you have it:</h2>
+        <div class="flex flex-col gap-4 text-justify">
+          <p>Hello there! I'm [Your Name], a passionate frontend developer with a keen eye for design and a love for crafting seamless user experiences. With [number of years] of experience in the industry, I've honed my skills in HTML, CSS, and JavaScript to bring concepts to life and create captivating digital experiences.</p>
+          <p>My journey in frontend development began [mention how and when you started]. Since then, I've been on a quest to stay at the forefront of emerging technologies and design trends, continuously refining my craft to deliver innovative solutions that exceed expectations. Whether it's building responsive websites, optimizing performance, or troubleshooting intricate UI challenges, I thrive on the dynamic nature of this field.</p>
+          <p>Driven by a blend of creativity and technical acumen, I approach each project with a fresh perspective, ensuring that every pixel and line of code serves a purpose. I believe that effective communication and collaboration are paramount to success, and I enjoy working closely with cross-functional teams to transform ideas into reality. By leveraging my expertise in frontend development, I strive to elevate brands and empower users through intuitive interfaces that leave a lasting impression.</p>
+          <p>Beyond coding, I'm deeply passionate about user-centric design and human-computer interaction, constantly exploring new methodologies to enhance usability and accessibility. Whether it's conducting usability tests, analyzing user feedback, or implementing best practices, I'm committed to creating inclusive digital experiences that resonate with diverse audiences.</p>
+          <p>On my free time, you'll often find me tinkering with new frameworks, experimenting with design concepts, or contributing to open-source projects. I believe in giving back to the community that has nurtured my growth as a developer and seek opportunities to share my knowledge and expertise with others. With a dedication to continuous learning and a relentless pursuit of excellence, I'm excited to embark on new challenges and contribute to projects that push the boundaries of frontend development.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
