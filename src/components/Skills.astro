@@ -1,0 +1,79 @@
+---
+import SectionTitle from "./SectionTitle.astro"
+import SkillsIcon from "./SkillsIcon.astro";
+
+/* icons */
+import javaScriptSvg from '../assets/icons/javaScript.svg'
+import typeScriptSvg from '../assets/icons/typeScript.svg'
+import reactSvg from '../assets/icons/react.svg'
+import postgreSqlSvg from '../assets/icons/postgresql.svg'
+import scssSassSvg from '../assets/icons/scssSass.svg'
+import tailwindSvg from '../assets/icons/tailwind.svg'
+import gitSvg from '../assets/icons/git.svg'
+import vueSvg from '../assets/icons/vue.svg'
+import vuetifySvg from '../assets/icons/vuetify.svg'
+import piniaSvg from '../assets/icons/pinia.svg'
+import reduxSvg from '../assets/icons/redux.svg'
+
+import translate from '../locales/translation.json'
+
+const { pathname } = Astro.url;
+const lang = pathname.split('/')[1]
+const currentLang = translate[lang] || translate["en"]
+const t = currentLang.about
+---
+
+<section class="skills">
+<div class="layout-wrapper">
+  <SectionTitle 
+    title="Skills" 
+    subtitle="The skills, tools and technologies I am really good at:"
+  />
+  <div class="flex gap-24 flex-wrap">
+    <SkillsIcon 
+      svgIcon={javaScriptSvg} 
+      subtitle="JavaScript"
+    />
+    <SkillsIcon 
+      svgIcon={typeScriptSvg} 
+      subtitle="TypeScript"
+    />
+    <SkillsIcon 
+      svgIcon={vueSvg} 
+      subtitle="Vue"
+    />
+    <SkillsIcon 
+      svgIcon={vuetifySvg} 
+      subtitle="Vuetify"
+    />
+    <SkillsIcon 
+      svgIcon={piniaSvg} 
+      subtitle="Vuex/Pinia"
+    />
+    <SkillsIcon 
+      svgIcon={reactSvg} 
+      subtitle="React"
+    />
+    <SkillsIcon 
+      svgIcon={reduxSvg} 
+      subtitle="Redux"
+    />
+    <SkillsIcon 
+      svgIcon={scssSassSvg} 
+      subtitle="Sass/Scss"
+    />
+    <SkillsIcon 
+      svgIcon={postgreSqlSvg} 
+      subtitle="PostgreSQL"
+    />
+    <SkillsIcon 
+      svgIcon={tailwindSvg} 
+      subtitle="TailWind"
+    />
+    <SkillsIcon 
+      svgIcon={gitSvg} 
+      subtitle="Git"
+    />
+  </div>
+</div>
+</section>
