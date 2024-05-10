@@ -13,9 +13,18 @@
       "workIn": "Working in Uran company"
     },
     "about": {
-      "sectionTitle": "About me"
+      "sectionTitle": "About me",
+      "infoTitle": "Curious about me? Here you have it:",
+      "paragraph1": "Hello there! I'm Dmitriy, a passionate frontend developer with a keen eye for design and a love for crafting seamless user experiences. With [number of years] of experience in the industry, I've honed my skills in HTML, CSS, and JavaScript to bring concepts to life and create captivating digital experiences.",
+      "paragraph2": "My journey in frontend development began [mention how and when you started]. Since then, I've been on a quest to stay at the forefront of emerging technologies and design trends, continuously refining my craft to deliver innovative solutions that exceed expectations. Whether it's building responsive websites, optimizing performance, or troubleshooting intricate UI challenges, I thrive on the dynamic nature of this field.",
+      "paragraph3": "Driven by a blend of creativity and technical acumen, I approach each project with a fresh perspective, ensuring that every pixel and line of code serves a purpose. I believe that effective communication and collaboration are paramount to success, and I enjoy working closely with cross-functional teams to transform ideas into reality. By leveraging my expertise in frontend development, I strive to elevate brands and empower users through intuitive interfaces that leave a lasting impression.",
+      "paragraph4": "Beyond coding, I'm deeply passionate about user-centric design and human-computer interaction, constantly exploring new methodologies to enhance usability and accessibility. Whether it's conducting usability tests, analyzing user feedback, or implementing best practices, I'm committed to creating inclusive digital experiences that resonate with diverse audiences.",
+      "paragraph5": "On my free time, you'll often find me tinkering with new frameworks, experimenting with design concepts, or contributing to open-source projects. I believe in giving back to the community that has nurtured my growth as a developer and seek opportunities to share my knowledge and expertise with others. With a dedication to continuous learning and a relentless pursuit of excellence, I'm excited to embark on new challenges and contribute to projects that push the boundaries of frontend development."
     },
-    "skills": {}
+    "skills": {
+      "sectionTitle": "Skills",
+      "sectionSubtitle": "The skills, tools and technologies:"
+    }
   },
   "ua": {
     "header": {
@@ -30,7 +39,18 @@
       "location": "Івано-Франківськ, Україна",
       "workIn": "Працюю в компанії \"Уран\""
     },
-    "about": {},
-    "skills": {}
+    "about": {
+      "sectionTitle": "Про мене",
+      "infoTitle": "Інформація про мене:",
+      "paragraph1": "Привіт! Я Дмитро, пристрасний розробник інтерфейсу з гострим поглядом на дизайн і любов’ю до створення безперебійної взаємодії з користувачем. Маючи [кількість років] досвіду роботи в галузі, я відточив свої навички HTML, CSS і JavaScript, щоб втілювати концепції в життя та створювати захоплюючі цифрові можливості.",
+      "paragraph2": "Моя подорож у розробці інтерфейсу почалася [згадайте, як і коли ви почали]. Відтоді я прагнув залишатися в авангарді нових технологій і тенденцій дизайну, постійно вдосконалюючи свою майстерність, щоб створювати інноваційні рішення, які перевершують очікування. Незалежно від того, чи це створення адаптивних веб-сайтів, оптимізація продуктивності чи усунення складних проблем інтерфейсу користувача, я процвітаю завдяки динамічній природі цієї сфери.",
+      "paragraph3": "Керуючись поєднанням креативності та технічної кмітливості, я підходжу до кожного проекту з нової точки зору, гарантуючи, що кожен піксель і рядок коду служать меті. Я вважаю, що ефективна комунікація та співпраця є найважливішими для успіху, і мені подобається тісно співпрацювати з міжфункціональними командами, щоб втілити ідеї в реальність. Використовуючи свій досвід у розробці інтерфейсу, я прагну підняти бренди та розширити можливості користувачів за допомогою інтуїтивно зрозумілих інтерфейсів, які залишають незабутнє враження.",
+      "paragraph4": "Окрім кодування, я глибоко захоплююся дизайном, орієнтованим на користувача, і взаємодією людини з комп’ютером, постійно досліджуючи нові методології для покращення зручності та доступності. Незалежно від того, чи це проведення тестів на зручність використання, аналіз відгуків користувачів чи впровадження найкращих практик, я прагну створювати інклюзивний цифровий досвід, який резонує з різноманітною аудиторією.",
+      "paragraph5": "У мій вільний час ви часто бачите, як я роблю нові фреймворки, експериментую з концепціями дизайну або роблю внесок у проекти з відкритим кодом. Я вірю в те, що потрібно віддавати користь спільноті, яка сприяла моєму розвитку як розробника, і шукаю можливості поділитися своїми знаннями та досвідом з іншими. З відданістю безперервному навчанню та невпинному прагненню до досконалості, я радий братися за нові виклики та робити внесок у проекти, які розширюють межі розробки інтерфейсу."
+    },
+    "skills": {
+      "sectionTitle": "Технології",
+      "sectionSubtitle": "Навички, інструменти та технології, якими я справді добре володію:"
+    }    
   }
 }

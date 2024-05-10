@@ -20,14 +20,14 @@ import translate from '../locales/translation.json'
 const { pathname } = Astro.url;
 const lang = pathname.split('/')[1]
 const currentLang = translate[lang] || translate["en"]
-const t = currentLang.about
+const t = currentLang.skills
 ---
 
 <section class="skills">
 <div class="layout-wrapper">
   <SectionTitle 
-    title="Skills" 
-    subtitle="The skills, tools and technologies I am really good at:"
+    title={t.sectionTitle}
+    subtitle={t.sectionSubtitle}
   />
   <div class="flex gap-24 flex-wrap">
     <SkillsIcon 
