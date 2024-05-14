@@ -1,0 +1,31 @@
+---
+import WorkItem from "./WorkItem.astro"
+import SectionTitle from "../SectionTitle.astro"
+import TestPreview from '../../assets/images/000.jpg'
+
+import type { WorkItemType } from '../../types/types.ts'
+
+const worksData: WorkItemType[] = [
+  {
+    title: 'Work1',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec urna ac tellus volutpat viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.',
+    stack: ['React', 'Typescript', 'Sass', 'React', 'Typescript', 'Sass', 'React', 'Typescript', 'Sass', 'React', 'Typescript', 'Sass'],
+    previewImage: TestPreview,
+  },
+  {
+    title: 'Work2',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec urna ac tellus volutpat viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.',
+    stack: ['React', 'Typescript', 'Sass', 'React', 'Typescript', 'Sass'],
+    previewImage: TestPreview,
+  }
+]
+---
+
+<section>
+  <div class="layout-wrapper">
+    <SectionTitle title="Work" subtitle="Some of the noteworthy projects I have built:" />
+    {worksData.map((item, index) => (
+      <WorkItem item={item} reverse={(index + 1) % 2 === 0} />
+    ))}
+  </div>
+</section>

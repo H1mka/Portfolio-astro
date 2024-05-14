@@ -1,0 +1,38 @@
+---
+import SectionTitle from "../SectionTitle.astro"
+import ExperienceItem from "./ExperienceItem.astro"
+import translate from '../../locales/translation.json'
+import UranLogo from '../../assets/images/uran_company_logo.jpg'
+import WafLogo from '../../assets/images/waf_company_logo.jpg'
+import type { ExperienceItemType } from '../../types/types.ts'
+
+const { pathname } = Astro.url;
+const lang = pathname.split('/')[1]
+const currentLang = translate[lang] || translate["en"]
+const t = currentLang.experience
+
+const experienceData: ExperienceItemType[] = [
+  { 
+    positionTitle: 'Trainee',
+    workTerm: t.waf.workTerm,
+    responsibilities: t.waf.responsibilities,
+    logo: UranLogo
+  },
+  { 
+    positionTitle: 'Pre-junior',
+    workTerm: t.uran.workTerm,
+    responsibilities: t.uran.responsibilities,
+    logo: WafLogo
+  }
+]
+---
+
+<section class="bg-gray-50">
+  <div class="layout-wrapper flex flex-col items-center">
+    <SectionTitle title="Experience" subtitle="Here is a quick summary of my most recent experiences:" />
+    {experienceData.map(item => (
+      // {item}
+      <ExperienceItem item={item} />
+    ))}
+  </div>
+</section>

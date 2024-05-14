@@ -1,4 +1,5 @@
 ---
+import greetImage from '../assets/images/about_photo.jpg'
 import locationSVG from '../../public/location.svg'
 import telegramSVG from '../../public/telegram.svg'
 import instagramSVG from '../../public/instagram.svg'
@@ -14,10 +15,16 @@ const t = currentLang.greetings
 ---
 
 <section class="layout-wrapper">
-  <div class="flex justify-between">
+  <div class="
+    flex 
+    flex-col-reverse 
+    md:flex 
+    md:flex-row 
+    justify-between
+  ">
     <div class="info max-w-[768px] w-full">
       <div class="info-content  mb-12">
-        <h1 class="font-bold text-6xl mb-2 text-gray-900">{t.title}</h1>
+        <h1 class="font-bold text-3xl md:text-6xl mb-2 text-gray-900">{t.title}</h1>
         <p class="text-base">{t.shortAbout}</p>
       </div>
       <div class="info-locations mb-12">
@@ -44,9 +51,24 @@ const t = currentLang.greetings
         </a>
       </div>
     </div>
-    <div class="image absolute top-0 right-40 z-0">
+    <div class="
+      image
+      w-full
+      flex
+      justify-center
+      min-h-[360px]
+      md:min-h-[450px]
+      md:max-w-[350px]
+      mb-8
+      md:mb-0
+    ">
+      <Image src={greetImage} alt='image of myself' class="min-h-[360px] max-w-[280px] sm:min-h-[450px] sm:max-w-[350px]" />
+      <!-- <div class="min-h-[450px] w-[450px] bg-gradient-to-r from-violet-500 to-fuchsia-500">
+      </div> -->
+    </div>
+    <!-- <div class="image absolute top-0 right-40 z-0">
       <div class="min-h-[500px] w-[550px] bg-gradient-to-r from-violet-500 to-fuchsia-500">
       </div>
-    </div>
+    </div> -->
   </div>
 </section>

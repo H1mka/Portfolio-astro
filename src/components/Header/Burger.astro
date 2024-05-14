@@ -1,0 +1,55 @@
+---
+import LanguageSelect from "./LanguageSelect.astro"
+
+interface IProps {
+  links: Array<object>
+  languages: Array<object>
+  lang: string
+  t: object
+}
+
+const { links, languages, lang, t } = Astro.props
+---
+
+<script>
+  const openButton = document.querySelector('#burger-menu')
+  const closeButton = document.querySelector('#burger-close')
+  const content = document.querySelector('#burger-content')
+  openButton.addEventListener('click', (event) => {
+    content.classList.remove('w-0')
+    content.classList.add('w-5/6')
+  })
+
+  closeButton.addEventListener('click', (event) => {
+    content.classList.add('w-0')
+    content.classList.remove('w-5/6')
+  })
+</script>
+
+<div class="md:hidden">
+  <div id="burger-menu">
+    <div class="bg-gray-900 w-5 h-1 mb-0.5"></div>
+    <div class="bg-gray-900 w-5 h-1 mb-0.5"></div>
+    <div class="bg-gray-900 w-5 h-1 mb-0.5"></div>
+  </div>
+
+  <div id="burger-content" class="fixed top-0 right-0 bg-white h-screen w-0 overflow-hidden transition-all duration-300 shadow-2xl">
+    <div class="">
+      <div id="burger-close" class="p-4 text-xl text-right border-b">X</div>
+      <!-- <div class="h-0.5 w-full bg-gray-600 opacity-25"></div> -->
+      <nav class="p-4 border-b">
+        <ul class="list-none text-gray-600 text-lg">
+          {links.map(link => 
+            <li>
+              <a href={link.url}> {link.name} </a>
+            </li>
+          )}
+        </ul>
+      </nav>
+      <div class="flex flex-col p-4 gap-2">
+        <button class="bg-gray-900 text-white px-4 py-2 rounded-xl max-w-[300px]">{t.downloadCV}</button>
+        <LanguageSelect lang={lang} />
+      </div>
+    </div>
+  </div>
+</div>

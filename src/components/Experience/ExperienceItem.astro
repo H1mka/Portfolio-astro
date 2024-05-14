@@ -1,0 +1,25 @@
+---
+import Image from 'astro/components/Image.astro'
+import type { ExperienceItemType } from '../../types/types.ts'
+interface IProps {
+  item: ExperienceItemType
+}
+
+const { item } = Astro.props as IProps
+console.log(item)
+---
+
+<article class="flex max-w-[896px] w-full rounded-xl shadow-xl mb-12 p-8 justify-between bg-white text-justify">
+  <div class="max-w-28 max-h-20">
+    <Image src={item.logo} alt="company logo" />
+  </div>
+  <div class="max-w-[384px]">
+    <h4 class="text-xl font-bold">{item.positionTitle}</h4>
+    <ul class="list-disc">
+      {item.responsibilities.map((resp: string) => (
+        <li>{resp}</li>
+      ))}
+    </ul>
+  </div>
+  <div class="max-w-[150px]">{item.workTerm}</div>
+</article>

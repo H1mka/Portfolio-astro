@@ -1,0 +1,30 @@
+---
+interface IProps {
+  lang: string
+}
+
+const { lang } = Astro.props as IProps
+
+const languages = [
+  { text: 'English', value: 'en' },
+  { text: 'Ukranian', value: 'ua' }
+]
+---
+
+<script>
+  const select = document.querySelector('#language-select')
+  select.addEventListener('change', (event: Event) => {
+    const target = event.target as HTMLSelectElement
+    const nextRoute = target.value === 'en' ? '/' : `/${target.value}`
+    window.location.href = nextRoute;
+  })
+</script>
+
+<select id="language-select" name="language-select" class="rounded-md border-2 border-gray-600 bg-gray-50 text-gray-600 p-2.5 outline-none focus:border-blue-500">
+  {languages.map(item => (
+    <option value={item.value} selected={item.value === lang}>
+      {item.text}
+    </option> 
+    )
+  )}
+</select>

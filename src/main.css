@@ -8,3 +8,22 @@
   margin: 0 auto;
   padding: 96px 80px;
 }
+
+
+@media (max-width: 1024px) {
+  .layout-wrapper {
+    padding: 96px 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout-wrapper {
+    padding: 96px 60px;
+  }
+}
+
+@media (max-width: 640px) {
+  .layout-wrapper {
+    padding: 60px 16px;
+  }
+}

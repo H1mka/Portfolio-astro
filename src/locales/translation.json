@@ -24,6 +24,29 @@
     "skills": {
       "sectionTitle": "Skills",
       "sectionSubtitle": "The skills, tools and technologies:"
+    },
+    "workDirections": {
+      "section01": "Development of interactive web interfaces",
+      "section02": "Development of PWA applications",
+      "section03": "Development of web applications for e-commerce",
+      "section04": "Web development for mobile devices"
+    },
+    "experience": {
+      "waf": {
+        "positionTitle": "Trainee",
+        "workTerm": "Nov 2023 - Jan 2024",
+        "responsibilities": ["Worked as full stack developer", "Worked with shop application", "Worked with a variety of technologies, including React, Typescript, Express.js, PostgreSQL, Tailwindcss, Mui, GitHub"]
+      },
+      "uran": {
+        "positionTitle": "Pre-junior",
+        "workTerm": "Feb 2024 - Present",
+        "responsibilities": ["Worked as frontend developer", "Worked with a variety of technologies, including Vue, Vuex/Pinia, TypeScript, Vuetify, GitHub"]
+      }
+    },
+    "works": {
+      "uran": {
+
+      }
     }
   },
   "ua": {
@@ -51,6 +74,25 @@
     "skills": {
       "sectionTitle": "Технології",
       "sectionSubtitle": "Навички, інструменти та технології, якими я справді добре володію:"
-    }    
+    },
+    "workDirections": {
+      "section01": "Разработка интерактивных веб-интерфейсов",
+      "section02": "Разработка PWA-приложений",
+      "section03": "Разработка веб-приложений для электронной коммерции",
+      "section04": "Веб-разработка для мобильных устройств"
+    },
+    "experience": {
+      "waf": {
+        "positionTitle": "Trainee",
+        "workTerm": "Листопад 2023 - Січень 2024",
+        "responsibilities": ["Працював full stack розробником", "Працював з додатком магазина", "Працював с наступними технологіями: React, Typescript, Express.js, PostgreSQL, Tailwindcss, Mui, GitHub"]
+      },
+      "uran": {
+        "positionTitle": "Pre-junior",
+        "workTerm": "Лютий 2024 - По теперішний час",
+        "responsibilities": ["Працюю frontend розробником", "Працюю с наступними технологіями: Vue, Vuex/Pinia, TypeScript, Vuetify, GitHub"]
+      }
+    },
+    "works": {}
   }
 }

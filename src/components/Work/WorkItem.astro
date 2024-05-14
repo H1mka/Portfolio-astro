@@ -1,0 +1,35 @@
+---
+import Image from "astro/components/Image.astro"
+import type { WorkItemType } from '../../types/types.ts'
+interface IWorkProps {
+  item: WorkItemType
+  reverse: Boolean
+}
+const { item, reverse } = Astro.props as IWorkProps
+console.log(item.title, reverse)
+---
+
+<article class={`flex mb-12 rounded-xl shadow-md max-h-[480px] ${reverse ? 'flex-row-reverse' : ''}`}>
+  <div class=`
+      w-1/2 p-12 
+      bg-gray-50 
+      border-gray-100
+      flex 
+      justify-center 
+      items-center
+      max-h-[480px]
+      ${reverse ? 'rounded-r-xl' : 'rounded-l-xl'}
+    `
+  >
+    <Image class="rounded-xl max-h-[384px] object-cover shadow-md" src={item.previewImage} alt="work preview" />
+  </div>
+  <div class="w-1/2 p-12 flex flex-col gap-6">
+    <h4 class="text-xl font-bold">{item.title}</h4>
+    <p>{item.description}</p>
+    <div class="flex gap-2 flex-wrap">
+      {item.stack.map((stackText: string) => (
+        <div class="w-fit bg-gray-200 px-5 py-1 rounded-xl">{stackText}</div>
+      ))}
+    </div>
+  </div>
+</article>
