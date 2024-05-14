@@ -3,7 +3,7 @@
     "header": {
       "about": "About",
       "work": "Work",
-      "contact": "Contact",
+      "contacts": "Contacts",
       "downloadCV": "Download CV"
     },
     "greetings": {
@@ -53,7 +53,7 @@
     "header": {
       "about": "Про мене",
       "work": "Роботи",
-      "contact": "Контакти",
+      "contacts": "Контакти",
       "downloadCV": "Завантажити CV"
     },
     "greetings": {

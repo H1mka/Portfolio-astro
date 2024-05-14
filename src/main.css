@@ -2,6 +2,10 @@
   --gray-backround: #f9fafb;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .layout-wrapper {
   max-width: 1440px;
   width: 100%;
