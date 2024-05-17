@@ -23,13 +23,28 @@ const currentLang = translate[lang] || translate["en"]
 const t = currentLang.skills
 ---
 
-<section class="skills">
+<script>
+  import { createBlockAnimation } from '../../animations/animations.ts'
+
+  createBlockAnimation('.bounceSkill', '#skills', -1, {
+    scrollTrigger: {
+      trigger: '#skills',
+      start: '0px 70%'
+    },
+    ease: 'bounce',
+    x: 0,
+    opacity: 0,
+    y: -200
+  })
+</script>
+
+<section id="skills">
 <div class="layout-wrapper">
   <SectionTitle 
     title={t.sectionTitle}
     subtitle={t.sectionSubtitle}
   />
-  <div class="flex gap-12 md:gap-24 flex-wrap">
+  <div class="flex gap-12 md:gap-24 flex-wrap bounceSkill">
     <SkillsIcon 
       svgIcon={javaScriptSvg} 
       subtitle="JavaScript"

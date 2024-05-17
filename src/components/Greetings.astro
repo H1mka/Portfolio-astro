@@ -4,6 +4,7 @@ import locationSVG from '../../public/location.svg'
 import telegramSVG from '../../public/telegram.svg'
 import instagramSVG from '../../public/instagram.svg'
 import githubSVG from '../../public/github.svg'
+import telephoneSVG from '../assets/icons/telephone.svg'
 
 import { Image } from 'astro:assets'
 import translate from '../locales/translation.json'
@@ -13,8 +14,25 @@ const lang = pathname.split('/')[1]
 const currentLang = translate[lang] || translate["en"]
 const t = currentLang.greetings
 ---
+<script>
+  import { createShowTextAnimation } from '../animations/animations.ts'
 
-<section class="layout-wrapper">
+  createShowTextAnimation('.text-show-d-200ms', '#greetings', -1, {
+    duration: 1.5,
+    delay: 0.2
+  })
+  createShowTextAnimation('.text-show-d-400ms', '#greetings', -1, {
+    duration: 1.5,
+    delay: 0.4
+  })
+  createShowTextAnimation('.text-show', '#greetings', -1, {
+    duration: 3,
+    x: 0,
+    delay: 1
+  })
+</script>
+
+<section id="greetings" class="layout-wrapper">
   <div class="
     flex 
     flex-col-reverse 
@@ -24,10 +42,10 @@ const t = currentLang.greetings
   ">
     <div class="info max-w-[768px] w-full">
       <div class="info-content  mb-12">
-        <h1 class="font-bold text-3xl md:text-6xl mb-2 text-gray-900">{t.title}</h1>
-        <p class="text-base">{t.shortAbout}</p>
+        <h1 class="font-bold text-3xl md:text-6xl mb-2 text-gray-900 text-show-d-200ms">{t.title}</h1>
+        <p class="text-base text-show-d-400ms">{t.shortAbout}</p>
       </div>
-      <div class="info-locations mb-12">
+      <div class="info-locations mb-12 text-show">
         <div class="flex gap-2 items-center">
           <Image src={locationSVG} alt='location icon' width="24"/>
           <div>{t.location}</div>
@@ -38,8 +56,12 @@ const t = currentLang.greetings
           </div>
           <div>{t.workIn}</div>
         </div>
+        <div class="flex gap-2 items-center">
+          <Image src={telephoneSVG} alt='location icon' width="24"/>
+          <div>+380 50 571 9172</div>
+        </div>
       </div>
-      <div class="info-social-medias flex gap-4">
+      <div class="info-social-medias flex gap-4 text-show">
         <a href="https://t.me/Himka242" target="_blank" >
           <Image src={telegramSVG} alt='telegram link' width="36" />
         </a>
@@ -52,6 +74,7 @@ const t = currentLang.greetings
       </div>
     </div>
     <div class="
+      right-appearance
       image
       w-full
       flex

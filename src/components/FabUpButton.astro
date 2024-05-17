@@ -1,0 +1,32 @@
+---
+import arrowUpSVG from '../assets/icons/arrow-up.svg'
+import Image from 'astro/components/Image.astro'
+---
+
+<script>
+  const fabButton = document.querySelector('#fab-go-up')
+  document.addEventListener('scroll', () => {
+    const isShowButton = window.scrollY > window.innerHeight
+    if (isShowButton) fabButton.classList.remove('hidden')
+    else fabButton.classList.add('hidden')
+  })
+</script>
+
+<a id="fab-go-up" class="
+    fixed
+    rounded-full
+    w-16
+    h-16
+    bg-slate-300
+    bottom-10
+    right-10
+    flex
+    justify-center
+    items-center
+    cursor-pointer
+    hidden
+  "
+    href="#greetings"
+  >
+  <Image width={40} src={arrowUpSVG} alt='go up button' />
+</a>

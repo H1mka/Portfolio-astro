@@ -1,30 +1,105 @@
 ---
+import { Image } from 'astro:assets'
+import ukraineSVG from '../../assets/icons/flag-ukraine.svg'
+import unitedKingdomSVG from '../../assets/icons/flag-united-kingdom.svg'
 interface IProps {
   lang: string
+  id: string
 }
 
-const { lang } = Astro.props as IProps
+const { lang, id } = Astro.props as IProps
+const flagsHash = {
+  'en': unitedKingdomSVG,
+  'ua': ukraineSVG
+}
+
+const flagSvg = flagsHash[lang]
 
 const languages = [
-  { text: 'English', value: 'en' },
-  { text: 'Ukranian', value: 'ua' }
+  { value: 'en' },
+  { value: 'ua' }
 ]
 ---
 
 <script>
-  const select = document.querySelector('#language-select')
-  select.addEventListener('change', (event: Event) => {
-    const target = event.target as HTMLSelectElement
-    const nextRoute = target.value === 'en' ? '/' : `/${target.value}`
-    window.location.href = nextRoute;
+  const selected = document.querySelector('#language-select')
+  const langMenu = document.querySelector('#lang-menu')
+  const langMenuItem = document.querySelectorAll('.lang-menu-item')
+
+/*   setInterval(() => {
+    console.log(selected)
+  }, 1000) */
+  let showMenu = false
+  const openMenu = () => {
+    langMenu.classList.remove('hidden')
+    showMenu = true
+  }
+  const closeMenu = () => {
+    langMenu.classList.add('hidden')
+    showMenu = false
+  }
+  selected.addEventListener('click', (event: Event) => {
+    event.stopPropagation()
+    console.log('click select')
+    showMenu ? closeMenu() : openMenu()
+  })
+
+  langMenuItem.forEach(item => {
+    item.addEventListener('click', () => {
+      console.log('click')
+      const value = item.children[1] || ''
+      if (!value) return
+      const lang = value.innerHTML.toLowerCase().trim()
+      closeMenu()
+      const nextRoute = lang === 'en' ? '/' : `/${lang}`
+      window.location.href = nextRoute
+      // console.log(lang, nextRoute)
+    })
+  })
+
+  const test = document.querySelector('#test')
+  test.addEventListener('click', () => {
+    console.log(321312)
   })
 </script>
 
-<select id="language-select" name="language-select" class="rounded-md border-2 border-gray-600 bg-gray-50 text-gray-600 p-2.5 outline-none focus:border-blue-500">
+<div id={id} class="cursor-pointer">
+  <div id="language-select" class="flex gap-2">
+    <Image width={24} src={flagSvg} alt="country flag" />
+    <!-- {lang.toUpperCase()} -->
+  </div>
+  <div id="lang-menu" class="
+    hidden
+    absolute
+    -translate-x-1/3
+    border
+    rounded-2xl
+    border-gray-700
+    bg-gray-100
+    z-50
+  ">
+    {languages.map((item, index) => (
+      <div class={`
+        lang-menu-item
+        p-4
+        border-b-2
+        border-gray-700
+        flex
+        gap-2
+        ${index === languages.length - 1 ? 'border-none' : ''}
+        `}
+      >
+        <Image width={24} src={flagsHash[item.value]} alt="country flag" />
+        <div> {item.value.toUpperCase()} </div>
+      </div>
+    ))}
+  </div>
+</div>
+<!-- <select id="language-select" name="language-select" class="rounded-md border-2 border-gray-600 bg-gray-50 text-gray-600 p-2.5 outline-none focus:border-blue-500">
   {languages.map(item => (
     <option value={item.value} selected={item.value === lang}>
       {item.text}
     </option> 
     )
   )}
-</select>
+</select> -->

@@ -21,11 +21,24 @@ const worksData: WorkItemType[] = [
 ]
 ---
 
+<script>
+  import { createBlockAnimation } from '../../animations/animations.ts'
+
+  createBlockAnimation('.work1', '.work1', 1, {
+    opacity: 0
+  })
+  createBlockAnimation('.work2', '.work2', -1, {
+    opacity: 0
+  })
+</script>
+
 <section id="work">
   <div class="layout-wrapper">
     <SectionTitle title="Work" subtitle="Some of the noteworthy projects I have built:" />
     {worksData.map((item, index) => (
-      <WorkItem item={item} reverse={(index + 1) % 2 === 0} />
+      <div class={`work${index + 1}`}>
+        <WorkItem item={item} reverse={(index + 1) % 2 === 0} />
+      </div>
     ))}
   </div>
 </section>

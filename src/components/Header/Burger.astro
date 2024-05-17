@@ -15,18 +15,38 @@ const { links, languages, lang, t } = Astro.props
   const openButton = document.querySelector('#burger-menu')
   const closeButton = document.querySelector('#burger-close')
   const content = document.querySelector('#burger-content')
+  const overlay = document.querySelector('#overlay')
+  const navButtons = document.querySelectorAll('.nav-buttons')
+
+
+  const closeModal = () => {
+    content.classList.add('w-0')
+    content.classList.remove('w-5/6')
+    overlay.classList.add('w-0')
+    overlay.classList.remove('w-full')
+  }
+  // setInterval(() => {
+  //   console.log(openButton)
+  //   console.log(openButton)
+  // }, 1000)
   openButton.addEventListener('click', (event) => {
     content.classList.remove('w-0')
     content.classList.add('w-5/6')
+    overlay.classList.remove('w-0')
+    overlay.classList.add('w-full')
   })
 
-  closeButton.addEventListener('click', (event) => {
-    content.classList.add('w-0')
-    content.classList.remove('w-5/6')
+  navButtons.forEach(btn => {
+    btn.addEventListener('click', closeModal)
   })
+
+  overlay.addEventListener('click', closeModal)
+
+  closeButton.addEventListener('click', closeModal)
 </script>
 
 <div class="md:hidden">
+  <div id="overlay" class="w-0 fixed top-0 right-0 left-0 bottom-0 bg-gray-700 opacity-50 -z-10"></div>
   <div id="burger-menu">
     <div class="bg-gray-900 w-5 h-1 mb-0.5"></div>
     <div class="bg-gray-900 w-5 h-1 mb-0.5"></div>
@@ -40,15 +60,14 @@ const { links, languages, lang, t } = Astro.props
       <nav class="p-4 border-b">
         <ul class="list-none text-gray-600 text-lg">
           {links.map(link => 
-            <li>
+            <li class="nav-buttons">
               <a href={link.url}> {link.name} </a>
             </li>
           )}
         </ul>
       </nav>
-      <div class="flex flex-col p-4 gap-2">
-        <button class="bg-gray-900 text-white px-4 py-2 rounded-xl max-w-[300px]">{t.downloadCV}</button>
-        <LanguageSelect lang={lang} />
+      <div class="flex justify-center items-center p-4">
+        <button class="bg-gray-900 text-white px-4 py-2 rounded-xl max-w-[300px] w-full">{t.downloadCV}</button>
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@ import Burger from './Burger.astro';
 import LanguageSelect from './LanguageSelect.astro';
 
 const { pathname } = Astro.url;
-const lang = pathname.split('/')[1]
+const lang = pathname.split('/')[1] || "en"
 const currentLang = translate[lang] || translate["en"]
 const t = currentLang.header
 
@@ -23,41 +23,28 @@ const languages = [
 ---
 
 <script>
-  const select = document.querySelector('#language-select')
-  select.addEventListener('change', (event: Event) => {
-    const target = event.target as HTMLSelectElement
-    const nextRoute = target.value === 'en' ? '/' : `/${target.value}`
-    window.location.href = nextRoute;
-  })
 </script>
 
-<!-- <header class="max-w-[1280px] w-full m-auto flex justify-between items-center min-h-16 font-semibold z-10 relative"> -->
-<header class="flex justify-between max-w-[1440px] m-auto items-center min-h-16 font-semibold z-10 relative px-4 md:px-20">
-  <!-- <div class="layout-wrapper"> -->
-  <h2 class="text-2xl">{'<Logo />'}</h2>
+<header class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+  <div class="max-w-[1440px] m-auto flex justify-between items-center min-h-16 font-semibold z-10 px-4 md:px-20">
+    <a class="text-2xl" href="#greetings">{'<Logo />'}</a>
 
-  <div class="right-menu hidden md:flex gap-4 items-center">
-    <nav>
-      <ul class="list-none flex gap-6 text-gray-600 text-lg">
-        {links.map(link => 
-          <li>
-            <a href={link.url}> {link.name} </a>
-          </li>
-        )}
-      </ul>
-    </nav>
-    <div class="h-6 bg-black w-px"></div>
-    <button class="bg-gray-900 text-white px-4 py-2 rounded-xl">{t.downloadCV}</button>
-    <LanguageSelect lang={lang} />
-    <!-- <select id="language-select" name="language-select" class="rounded-md border-2 border-gray-600 bg-gray-50 text-gray-600 p-2.5 outline-none focus:border-blue-500">
-      {languages.map(item => (
-        <option value={item.value} selected={item.value === lang}>
-          {item.text}
-        </option> 
-        )
-      )}
-    </select> -->
+    <div class="right-menu block flex gap-4 items-center">
+      <div class="hidden md:flex gap-4 items-center">
+        <nav>
+          <ul class="list-none flex gap-6 text-gray-600 text-lg">
+            {links.map(link => 
+              <li>
+                <a href={link.url}> {link.name} </a>
+              </li>
+            )}
+          </ul>
+        </nav>
+        <div class="h-6 bg-black w-px"></div>
+        <button class="bg-gray-900 text-white px-4 py-2 rounded-xl">{t.downloadCV}</button>
+      </div>
+      <LanguageSelect id="header-language-select" lang={lang} />
+      <Burger links={links} languages={languages} lang={lang} t={t} />
+    </div>
   </div>
-  <Burger links={links} languages={languages} lang={lang} t={t} />
-  <!-- </div> -->
 </header>

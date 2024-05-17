@@ -6,7 +6,6 @@ interface IProps {
 }
 
 const { item } = Astro.props as IProps
-console.log(item)
 ---
 
 <article class="
@@ -25,7 +24,7 @@ console.log(item)
   gap-4
   md:gap-0
 ">
-  <div class="max-w-28 max-h-20 order-1">
+  <div class="max-w-28 order-1 flex items-center">
     <Image src={item.logo} alt="company logo" />
   </div>
   <div class="max-w-[384px] order-3 md:order-2">

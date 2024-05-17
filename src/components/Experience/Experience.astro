@@ -27,12 +27,25 @@ const experienceData: ExperienceItemType[] = [
 ]
 ---
 
+<script>
+  import { createBlockAnimation } from '../../animations/animations.ts'
+
+  createBlockAnimation('.experience1', '.experience1', 1, {
+    opacity: 0
+  })
+  createBlockAnimation('.experience2', '.experience2', -1, {
+    opacity: 0
+  })
+</script>
+
 <section class="bg-gray-50">
   <div class="layout-wrapper flex flex-col items-center">
-    <SectionTitle title="Experience" subtitle="Here is a quick summary of my most recent experiences:" />
-    {experienceData.map(item => (
+    <SectionTitle title={t.sectionTitle} subtitle={t.sectionSubtitle} />
+    {experienceData.map((item, index) => (
       // {item}
-      <ExperienceItem item={item} />
+      <div class={`experience${index + 1}`}>
+        <ExperienceItem item={item} />
+      </div>
     ))}
   </div>
 </section>

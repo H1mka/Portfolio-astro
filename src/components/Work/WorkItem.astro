@@ -6,7 +6,6 @@ interface IWorkProps {
   reverse: Boolean
 }
 const { item, reverse } = Astro.props as IWorkProps
-console.log(item.title, reverse)
 ---
 
 <article class={`md:flex mb-12 rounded-xl shadow-md md:max-h-[550px] ${reverse ? 'flex-row-reverse' : ''}`}>
