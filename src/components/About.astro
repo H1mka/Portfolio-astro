@@ -1,0 +1,62 @@
+---
+import SectionTitle from "./SectionTitle.astro"
+import Image from "astro/components/Image.astro";
+import aboutPhoto from "../assets/images/about_photo.jpg"
+
+import translate from '../locales/translation.json'
+
+const { pathname } = Astro.url;
+const lang = pathname.split('/')[1]
+const currentLang = translate[lang] || translate["en"]
+const t = currentLang.about
+---
+
+<!-- <script src="../animations/animations.ts" /> -->
+
+<script>
+import { createShowTextAnimation } from '../animations/animations.ts'
+
+  createShowTextAnimation('.show-text-200ms', '#about', 1, { delay: 0.2 })
+  createShowTextAnimation('.show-text-first', '#about', 1, { delay: 0.5 })
+  createShowTextAnimation('.show-text-second', '#about', 1, { delay: 0.8 })
+  createShowTextAnimation('.show-text-third', '#about', 1, { delay: 1.1 })
+  createShowTextAnimation('.show-text-fourth', '#about', 1, { delay: 1.4 })
+  createShowTextAnimation('.show-text-fifth', '#about', 1,{ delay: 1.7 })
+
+</script>
+
+<section id="about" class="about bg-gray-50">
+  <div class="layout-wrapper">
+    <SectionTitle title={t.sectionTitle} />
+    <div class="md:flex gap-12">
+      <div class="
+        about-image
+        w-full
+        flex
+        justify-center
+        mb-8
+        md:mb-0
+        md:block
+        md:max-w-[360px]
+      ">
+        <Image src={aboutPhoto} alt="selfie" class="max-w-[280px] sm:max-w-[360px]" />
+      </div>
+      <div class="about-info w-full">
+        <h2 class="
+         text-2xl
+         sm:text-3xl
+         font-semibold
+         mb-6
+         show-text-200ms
+        ">{t.infoTitle}</h2>
+        <div class="flex flex-col gap-4 text-justify">
+          <p class="show-text-first">{t.paragraph1}</p>
+          <p class="show-text-second">{t.paragraph2}</p>
+          <p class="show-text-third">{t.paragraph3}</p>
+          <p class="show-text-fourth">{t.paragraph4}</p>
+          <p class="show-text-fifth">{t.paragraph5}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

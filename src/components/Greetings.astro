@@ -1,0 +1,97 @@
+---
+import greetImage from '../assets/images/about_photo.jpg'
+import locationSVG from '../../public/location.svg'
+import telegramSVG from '../../public/telegram.svg'
+import instagramSVG from '../../public/instagram.svg'
+import githubSVG from '../../public/github.svg'
+import telephoneSVG from '../assets/icons/telephone.svg'
+
+import { Image } from 'astro:assets'
+import translate from '../locales/translation.json'
+
+const { pathname } = Astro.url;
+const lang = pathname.split('/')[1]
+const currentLang = translate[lang] || translate["en"]
+const t = currentLang.greetings
+---
+<script>
+  import { createShowTextAnimation } from '../animations/animations.ts'
+
+  createShowTextAnimation('.text-show-d-200ms', '#greetings', -1, {
+    duration: 1.5,
+    delay: 0.2
+  })
+  createShowTextAnimation('.text-show-d-400ms', '#greetings', -1, {
+    duration: 1.5,
+    delay: 0.4
+  })
+  createShowTextAnimation('.text-show', '#greetings', -1, {
+    duration: 3,
+    x: 0,
+    delay: 1
+  })
+</script>
+
+<section id="greetings" class="layout-wrapper">
+  <div class="
+    flex 
+    flex-col-reverse 
+    md:flex 
+    md:flex-row 
+    justify-between
+  ">
+    <div class="info max-w-[768px] w-full">
+      <div class="info-content  mb-12">
+        <h1 class="font-bold text-3xl md:text-6xl mb-2 text-gray-900 text-show-d-200ms">{t.title}</h1>
+        <p class="text-base text-show-d-400ms">{t.shortAbout}</p>
+      </div>
+      <div class="info-locations mb-12 text-show">
+        <div class="flex gap-2 items-center">
+          <Image src={locationSVG} alt='location icon' width="24"/>
+          <div>{t.location}</div>
+        </div>
+        <div class="flex gap-2 items-center">
+          <div class="w-6 flex items-center justify-center">
+            <div class="rounded-full size-2 bg-green-500"></div>
+          </div>
+          <div>{t.workIn}</div>
+        </div>
+        <div class="flex gap-2 items-center">
+          <Image src={telephoneSVG} alt='location icon' width="24"/>
+          <div>+380 50 571 9172</div>
+        </div>
+      </div>
+      <div class="info-social-medias flex gap-4 text-show">
+        <a href="https://t.me/Himka242" target="_blank" >
+          <Image src={telegramSVG} alt='telegram link' width="36" />
+        </a>
+        <a href="https://www.instagram.com/petia6079/" target="_blank">
+          <Image src={instagramSVG} alt='instagram link' width="36" />
+        </a>
+        <a href="https://github.com/H1mka" target="_blank">
+          <Image src={githubSVG} alt='github link' width="36" />
+        </a>
+      </div>
+    </div>
+    <div class="
+      right-appearance
+      image
+      w-full
+      flex
+      justify-center
+      min-h-[360px]
+      md:min-h-[450px]
+      md:max-w-[350px]
+      mb-8
+      md:mb-0
+    ">
+      <Image src={greetImage} alt='image of myself' class="min-h-[360px] max-w-[280px] sm:min-h-[450px] sm:max-w-[350px]" />
+      <!-- <div class="min-h-[450px] w-[450px] bg-gradient-to-r from-violet-500 to-fuchsia-500">
+      </div> -->
+    </div>
+    <!-- <div class="image absolute top-0 right-40 z-0">
+      <div class="min-h-[500px] w-[550px] bg-gradient-to-r from-violet-500 to-fuchsia-500">
+      </div>
+    </div> -->
+  </div>
+</section>

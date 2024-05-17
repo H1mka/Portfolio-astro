@@ -1,0 +1,35 @@
+---
+import Header from '../components/Header/Header.astro'
+import Footer from '../components/Footer.astro'
+import FabUpButton from '../components/FabUpButton.astro'
+interface LayoutProps {
+  title: string
+}
+const { title = 'Portfolio' } = Astro.props as LayoutProps
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="text-gray-600">
+		<Header />
+		<main>
+			<slot />
+			<FabUpButton />
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<script>
+	import gsap from 'gsap'
+	import { ScrollTrigger } from "gsap/ScrollTrigger";
+	gsap.registerPlugin(ScrollTrigger)
+	window.gsap = gsap
+
+</script>

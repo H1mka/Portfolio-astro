@@ -1,0 +1,51 @@
+---
+import SectionTitle from "../SectionTitle.astro"
+import ExperienceItem from "./ExperienceItem.astro"
+import translate from '../../locales/translation.json'
+import UranLogo from '../../assets/images/uran_company_logo.jpg'
+import WafLogo from '../../assets/images/waf_company_logo.jpg'
+import type { ExperienceItemType } from '../../types/types.ts'
+
+const { pathname } = Astro.url;
+const lang = pathname.split('/')[1]
+const currentLang = translate[lang] || translate["en"]
+const t = currentLang.experience
+
+const experienceData: ExperienceItemType[] = [
+  { 
+    positionTitle: 'Trainee',
+    workTerm: t.waf.workTerm,
+    responsibilities: t.waf.responsibilities,
+    logo: UranLogo
+  },
+  { 
+    positionTitle: 'Pre-junior',
+    workTerm: t.uran.workTerm,
+    responsibilities: t.uran.responsibilities,
+    logo: WafLogo
+  }
+]
+---
+
+<script>
+  import { createBlockAnimation } from '../../animations/animations.ts'
+
+  createBlockAnimation('.experience1', '.experience1', 1, {
+    opacity: 0
+  })
+  createBlockAnimation('.experience2', '.experience2', -1, {
+    opacity: 0
+  })
+</script>
+
+<section class="bg-gray-50">
+  <div class="layout-wrapper flex flex-col items-center">
+    <SectionTitle title={t.sectionTitle} subtitle={t.sectionSubtitle} />
+    {experienceData.map((item, index) => (
+      // {item}
+      <div class={`experience${index + 1}`}>
+        <ExperienceItem item={item} />
+      </div>
+    ))}
+  </div>
+</section>
